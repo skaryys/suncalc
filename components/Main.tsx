@@ -62,8 +62,6 @@ const Main: FC = () => {
         });
     };
 
-    console.log(sunTimes);
-
     return (
         <>
             <SunBackground zIndex={0} light={sunTimes !== null} />
