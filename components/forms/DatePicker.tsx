@@ -9,6 +9,7 @@ type DatePickerProps = {
     name: string;
 }
 
+// Just updated react-datepicker styles
 const DatePickerStyle = styled(Box)`
   .react-datepicker-popper[data-placement^="bottom"] .react-datepicker__triangle, .react-datepicker-popper[data-placement^="top"] .react-datepicker__triangle, .react-datepicker__year-read-view--down-arrow,
   .react-datepicker__month-read-view--down-arrow,

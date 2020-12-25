@@ -1,5 +1,6 @@
 import { breakpoints, createTheme, container, button } from "@xcorejs/ui";
 
+// Theme required by @xcorejs/ui library
 export const theme = createTheme({
     name: "mainTheme",
     ...breakpoints(["30em", "48em", "64em", "78em", "85em"]),

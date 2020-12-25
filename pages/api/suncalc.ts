@@ -16,10 +16,13 @@ const geocoder = NodeGeocoder(options);
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === "POST") {
+        // Get Country latitude/longitude by name
         const countryData = await geocoder.geocode({ address: req.body.country.label, countryCode: req.body.country.value, limit: 1 });
 
         if (countryData) {
+            // Get Sunrise and Sunset times
             const times = SunCalc.getTimes(new Date(req.body.day), countryData[0].latitude, countryData[0].longitude);
+            // Get timezone for country
             const countryTimeZone = GeoTz(countryData[0].latitude, countryData[0].longitude)[0];
 
             const result = {

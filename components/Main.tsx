@@ -13,6 +13,7 @@ type SunTimes = {
   sunset: Date;
 };
 
+// Validation of Formik form
 const FormSchema = Yup.object().shape({
     day: Yup.date()
         .required("Required"),
@@ -26,6 +27,7 @@ const Main: FC = () => {
     const [countries, setCountries] = useState([]);
     const [sunTimes, setSunTimes] = useState(null as SunTimes);
 
+    // Get options for country select
     useEffect(() => {
         const fetchCountries = async () => {
             const result = await axios(
@@ -43,6 +45,7 @@ const Main: FC = () => {
         fetchCountries();
     }, []);
 
+    // Get sunrise and sunset times
     const fetchTimes = async (values) => {
         await axios.post(
             '/api/suncalc', {
@@ -65,6 +68,7 @@ const Main: FC = () => {
     return (
         <>
             <SunBackground zIndex={0} light={sunTimes !== null} />
+
             <Flex position="absolute" top={0} left={0} right={0} bottom={0} zIndex={1} minHeight="48rem">
                 <Container height="100%">
                     <Flex width="100%" flexDirection="column">
