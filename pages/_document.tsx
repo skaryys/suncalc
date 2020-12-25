@@ -5,6 +5,7 @@ import NextDocument, {
     Head,
     Main,
     NextScript,
+    Html
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
@@ -21,22 +22,17 @@ class Document extends NextDocument<{ styleTags: Array<ReactElement<{}>> }> {
         const { styleTags } = this.props;
 
         return (
-            <html lang="en">
-            <Head>
-                <title>Sunrise / Sunset calculator</title>
-                <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover" />
-                <meta property="og:title" content="Sunrise / Sunset calculator" />
-                <meta name="description" content="App which shows sunrise and sunset times." />
-                <meta name="theme-color" content="#000000" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
-                {styleTags}
-            </Head>
-            <body>
+            <Html lang="en">
+                <Head>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+                    {styleTags}
+                </Head>
+                <body>
                     <Main/>
                     <NextScript/>
                 </body>
-            </html>
+            </Html>
         );
     }
 }
